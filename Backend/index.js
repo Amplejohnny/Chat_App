@@ -3,12 +3,18 @@ const http = require("http");
 const app = express();
 const { Server } = require("socket.io");
 const cors = require("cors");
+const connectDB = require("./src/config/database");
+const UserRoute = require("./src/routes/userRoute");
 const dotenv = require("dotenv");
 dotenv.config();
 
+connectDB();
 
 const Port = process.env.PORT
+app.use(express.json());
 app.use(cors());
+app.use("/api/auth", UserRoute);
+
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
