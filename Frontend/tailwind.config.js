@@ -23,7 +23,8 @@ export default {
         DancingScript: ["Dancing Script", ...defaultTheme.fontFamily.sans],
         Arimo: ["Arimo", ...defaultTheme.fontFamily.sans],
         Caveat: ["Caveat", ...defaultTheme.fontFamily.sans],
-        Gallient: ["Gallient", ...defaultTheme.fontFamily.sans]
+        Gallient: ["Gallient", ...defaultTheme.fontFamily.sans],
+        Nunito: ["Nunito", "sans-serif"],
       },
       colors: {
         transparent: "transparent",

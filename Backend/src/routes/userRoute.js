@@ -3,13 +3,13 @@ const router = express.Router();
 const {
   registerUser,
   userLogin,
-  findUser,
-  findAllUsers,
+  getUser,
+  getAllUsers,
 } = require("../controllers/userController");
 
 router.post("/signup", registerUser);
 router.post("/login", userLogin);
-router.get("/find/:userId", findUser);
-router.get("/find", findAllUsers);
-
-module.exports = router;
+router.get("/find/:userId", getUser);
+router.get("/users", getAllUsers);
+ 
+module.exports = router; 

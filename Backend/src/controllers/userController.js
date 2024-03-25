@@ -78,7 +78,7 @@ const userLogin = async (req, res) => {
   }
 };
 
-const findUser = async (req, res) => {
+const getUser = async (req, res) => {
   const userId = req.params.userId;
   try {
     const user = await userModel.findById(userId);
@@ -95,7 +95,7 @@ const findUser = async (req, res) => {
   }
 };
 
-const findAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find();
     if (!users) return res.status(404).json({ msg: "No user found" });
@@ -114,6 +114,6 @@ const findAllUsers = async (req, res) => {
 module.exports = {
   registerUser,
   userLogin,
-  findUser,
-  findAllUsers,
+  getUser,
+  getAllUsers,
 };
