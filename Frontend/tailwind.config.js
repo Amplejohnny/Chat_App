@@ -5,13 +5,8 @@ export default {
   theme: {
     screens: {
       sm: "480px",
-      // => @media (min-width: 640px) { ... }
-      md: "547px",
-      // => @media (min-width: 768px) { ... }
-      lg: "768px",
-      // => @media (min-width: 1024px) { ... }
-      xl: "1024px"
-      // => @media (min-width: 1280px) { ... }
+      md: "768px",
+      lg: "976px",
     },
     extend: {
       fontFamily: {
@@ -28,6 +23,8 @@ export default {
       },
       colors: {
         transparent: "transparent",
+        warning: "#ff0000",
+        orange: "#ff7e29",
         current: "currentColor",
         white: "#ffffff",
         purple: "#3f3cbb",

@@ -18,8 +18,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Nunito", sans-serif;
-  background-color: #ffffff;
-  color: #363636;
+  background: rgb(40, 40, 40);
+  color: white;
 }
 
 h1 {
