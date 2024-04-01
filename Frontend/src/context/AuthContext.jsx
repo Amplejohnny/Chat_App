@@ -19,14 +19,17 @@ export const AuthContextProvider = ({ children }) => {
     password: ""
   });
 
-  console.log("User: ", user);
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("User"));
+    const user = JSON.parse(localStorage.getItem("user"));
     return setUser(user);
   }, []);
 
   const updateRegisterinfo = useCallback((info) => {
     setRegisterInfo(info);
+  }, []);
+
+  const updateLogininfo = useCallback((info) => {
+    setLoginInfo(info);
   }, []);
 
   const registerUser = useCallback(
@@ -39,7 +42,7 @@ export const AuthContextProvider = ({ children }) => {
       if (response.error) {
         return setRegisterError(response);
       }
-      localStorage.setItem("User", JSON.stringify(response));
+      localStorage.setItem("user", JSON.stringify(response));
       setUser(response);
     },
     [registerInfo]
@@ -55,15 +58,20 @@ export const AuthContextProvider = ({ children }) => {
       if (response.error) {
         return setLoginError(response);
       }
-      localStorage.setItem("User", JSON.stringify(response));
+      localStorage.setItem("user", JSON.stringify(response));
       setUser(response);
     },
     [loginInfo]
   );
 
   const logOutUser = useCallback(() => {
-    localStorage.removeItem("User");
+    localStorage.removeItem("user");
     setUser(null);
+    updateLogininfo({ email: "", password: "" });
+  }, []);
+
+  const clearLoginError = useCallback(() => {
+    setLoginError(null);
   }, []);
 
   return (
@@ -77,6 +85,11 @@ export const AuthContextProvider = ({ children }) => {
         isRegisterLoading,
         logOutUser,
         loginUser,
+        loginError,
+        isLoginLoading,
+        updateLogininfo,
+        loginInfo,
+        clearLoginError
       }}
     >
       {children}

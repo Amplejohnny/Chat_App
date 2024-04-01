@@ -5,6 +5,8 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const connectDB = require("./src/config/database");
 const userRoute = require("./src/routes/userRoute");
+const chatRoute = require("./src/routes/chatRoute");
+const messageRoute = require("./src/routes/messageRoute");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -14,6 +16,8 @@ const Port = process.env.PORT
 app.use(express.json());
 app.use(cors());
 app.use("/api/auth", userRoute);
+app.use("/api/chats", chatRoute);
+app.use("/api/messages", messageRoute);
 
 const server = http.createServer(app);
 const io = new Server(server, {

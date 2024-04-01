@@ -12,7 +12,7 @@ const Register = () => {
           Sign up
         </div>
         <div className="flex items-center justify-center px-24 pt-1">
-          <form className="flex flex-col w-[30rem]" onSubmit={registerUser}>
+          <form onSubmit={registerUser} className="flex flex-col w-[30rem]">
             <div className="flex flex-col mb-2">
               <label className="">Username</label>
               <input
@@ -43,12 +43,12 @@ const Register = () => {
             <div className="flex justify-center mb-4">
               <button
                 type="submit"
-                className="bg-tahiti-600 text-white p-2 rounded-lg w-28 lg:w-48 hover:bg-tahiti-900 transition duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-tahiti-900 focus:ring-opacity-50"
+                className="bg-tahiti-600 text-white p-2 rounded-lg w-28 md:w-48 hover:bg-tahiti-900 transition duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-tahiti-900 focus:ring-opacity-50"
               >
                 {isRegisterLoading ? "Signing up..." : "Sign up"}
               </button>
             </div>
-            {registerError?.error && (
+            {registerError && (
               <div
                 className="bg-red-100 border border-red-100 text-red-700 px-4 py-3 rounded relative "
                 role="alert"
