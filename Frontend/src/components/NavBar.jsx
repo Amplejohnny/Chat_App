@@ -4,7 +4,7 @@ import { useContext } from "react";
 const NavBar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   return (
-    <div className="flex justify-between items-center py-4 pr-6 pl-4 md:pr-28 md:pl-16 bg-black">
+    <div className="flex justify-between items-center py-3 pr-6 pl-4 md:pr-28 md:pl-16 bg-black mb-3">
       <span className="text-2xl font-bold">
         <Link to="/" className="text-bermuda hover:text-tahiti-900">
           My Chat App
