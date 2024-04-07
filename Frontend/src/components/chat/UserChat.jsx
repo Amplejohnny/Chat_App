@@ -21,7 +21,8 @@ const UserChat = ({ chat, user }) => {
         </div>
       </div>
       <div className="d-flex flex-column align-items-end">
-        <div className="date">{new Date(chat?.updatedAt).toLocaleDateString()}</div>
+        <div className="date">05/04/2024</div>
+        {/* {new Date(chat?.updatedAt).toLocaleDateString()} */}
         <div className="this-user-notifications">2</div>
         <span className="user-online"></span>
       </div>
