@@ -1,10 +1,15 @@
 import { Stack } from "react-bootstrap";
 import { useFetchRecipientUser } from "../../hooks/useFetch";
 import avatar from "../../assets/Avatar.svg";
+import { useContext } from "react";
+import { ChatContext } from "../../context/ChatContext";
 
 const UserChat = ({ chat, user }) => {
   const { recipientUser } = useFetchRecipientUser(chat, user);
-  //   console.log("recipientUser", recipientUser);
+  const {onlineUsers} = useContext(ChatContext);
+
+  const isOnline = onlineUsers?.some((user) => user?.userId === recipientUser?.data?._id);
+
   return (
     <Stack
       direction="horizontal"
@@ -24,7 +29,7 @@ const UserChat = ({ chat, user }) => {
         <div className="date">05/04/2024</div>
         {/* {new Date(chat?.updatedAt).toLocaleDateString()} */}
         <div className="this-user-notifications">2</div>
-        <span className="user-online"></span>
+        <span className={isOnline ?  "user-online" : ""}></span>
       </div>
     </Stack>
   );

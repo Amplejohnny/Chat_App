@@ -13,7 +13,7 @@ const ChatBox = () => {
   const { recipientUser } = useFetchRecipientUser(currentChat, user);
   const [textMessage, setTextMessage] = useState("");
 
-  console.log("textMessage", textMessage);
+  // console.log("textMessage", textMessage);
 
   if (!recipientUser) return <p className="text-center w-full">No conversation selected yet...</p>;
   if (isMessagesLoading) return <p className="text-center w-full">Loading chats...</p>;
