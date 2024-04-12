@@ -178,7 +178,8 @@ body {
 }
 
 .notification.not-read {
-  background: #263159;
+  background: #243E36;
+  /* #263159  */
 }
 
 .notification-time {

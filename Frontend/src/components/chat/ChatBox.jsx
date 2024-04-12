@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
 import { useFetchRecipientUser } from "../../hooks/useFetch";
 import { Stack } from "react-bootstrap";
 import moment from "moment";
 import InputEmoji from "react-input-emoji";
+import { useRef } from "react";
 
 const ChatBox = () => {
   const { user } = useContext(AuthContext);
@@ -13,7 +14,14 @@ const ChatBox = () => {
   const { recipientUser } = useFetchRecipientUser(currentChat, user);
   const [textMessage, setTextMessage] = useState("");
 
+  //tracking the positionn of our page 
+  const scroll = useRef();
+
   // console.log("textMessage", textMessage);
+
+  useEffect(() => {
+    scroll.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   if (!recipientUser) return <p className="text-center w-full">No conversation selected yet...</p>;
   if (isMessagesLoading) return <p className="text-center w-full">Loading chats...</p>;
@@ -35,6 +43,7 @@ const ChatBox = () => {
                   ? "message self align-self-end flex-grow-0"
                   : "message align-self-start flex-grow-0"
               }`}
+              ref = {scroll}
             >
               <span>{message?.text}</span>
               <span className="message-footer">

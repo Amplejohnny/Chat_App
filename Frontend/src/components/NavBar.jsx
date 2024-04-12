@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import Notification from "./chat/Notification";
 const NavBar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   return (
@@ -11,9 +12,10 @@ const NavBar = () => {
         </Link>
       </span>
       {user && <span className="text-orange">Logged In as {user?.data?.username}</span>}
-      <span className="space-x-7">
+      <span className="space-x-7 flex">
         {user && (
           <>
+            <Notification />
             <Link onClick={() => logOutUser()} to="/login" className="hover:text-cyan-400">
               Logout
             </Link>
