@@ -188,6 +188,21 @@ export const ChatContextProvider = ({ children, user }) => {
     setNotifications(updatedNotifications);
   }, []);
 
+  const markParticularAsRead = useCallback((particularUserNotification, notifications) => {
+    const updatedNotifications = notifications.map((el) => {
+      let notification;
+
+      particularUserNotification.forEach((n) => {
+        if (n.senderId === el.senderId) {
+          notification = { ...n, isRead: true };
+        }
+      });
+
+      return notification ? notification : el;
+    });
+    setNotifications(updatedNotifications);
+  }, []);
+
   return (
     <ChatContext.Provider
       value={{
@@ -207,7 +222,9 @@ export const ChatContextProvider = ({ children, user }) => {
         notifications,
         allUsers,
         markAllAsRead,
-        markAsRead
+        markAsRead,
+        markParticularAsRead, 
+        newMessage
       }}
     >
       {children}
