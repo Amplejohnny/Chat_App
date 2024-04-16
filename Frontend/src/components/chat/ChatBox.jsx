@@ -14,10 +14,10 @@ const ChatBox = () => {
   const { recipientUser } = useFetchRecipientUser(currentChat, user);
   const [textMessage, setTextMessage] = useState("");
 
-  //tracking the positionn of our page 
+  //tracking the position of our page 
   const scroll = useRef();
 
-  // console.log("textMessage", textMessage);
+
 
   useEffect(() => {
     scroll.current?.scrollIntoView({ behavior: "smooth" });

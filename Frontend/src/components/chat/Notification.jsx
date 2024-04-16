@@ -11,16 +11,11 @@ const notification = () => {
   const { notifications, userChats, allUsers, markAllAsRead, markAsRead } = useContext(ChatContext); //allUsers not there
 
   const unreadNotifications = unreadNotificationsFunc(notifications);
-  //   console.log("allUsers", allUsers);
-  //   console.log("notifications", notifications)
-  // console.log("unreadNotifications", unreadNotifications)
+  
   const notificationWithSender = notifications.map((n) => {
     const sender = allUsers.find((user) => user?._id === n.senderId);
     return { ...n, senderName: sender?.username };
   });
-
-  //   console.log("unreadNotifications", unreadNotifications);
-  //   console.log("notificationWithSender", notificationWithSender);
 
   return (
     <div className="notifications flex">

@@ -19,8 +19,6 @@ export const ChatContextProvider = ({ children, user }) => {
   const [notifications, setNotifications] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
 
-  // console.log("notifications", notifications);
-
   //initializing socket
   useEffect(() => {
     const newSocket = io("http://localhost:8000");
@@ -109,7 +107,7 @@ export const ChatContextProvider = ({ children, user }) => {
       }
     };
     getUserChats();
-  }, [user]);
+  }, [user, notifications]);
 
   //Listening for received new messages
   useEffect(() => {
@@ -139,7 +137,7 @@ export const ChatContextProvider = ({ children, user }) => {
         return setSendTextMessageError(response);
       }
       setNewMessage(response);
-      setMessages((prev) => [...prev, response]);
+      setMessages((prev) => [response, ...prev]);
       setTextMessage("");
     },
     []
@@ -202,6 +200,18 @@ export const ChatContextProvider = ({ children, user }) => {
     });
     setNotifications(updatedNotifications);
   }, []);
+  
+  //arrange the list according to the latest message using the createdAt property in the timestamp
+  // useEffect(() => {
+  //   if (userChats) {
+  //     const sortedChats = userChats.sort((a, b) => {
+  //       const latestMessageA = a?.messages[a?.messages.length - 1];
+  //       const latestMessageB = b?.messages[b?.messages.length - 1];
+  //       return new Date(latestMessageB?.createdAt) - new Date(latestMessageA?.createdAt);
+  //     });
+  //     setUserChats(sortedChats);
+  //   }
+  // }, [userChats]);
 
   return (
     <ChatContext.Provider
