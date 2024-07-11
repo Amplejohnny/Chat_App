@@ -14,7 +14,7 @@ const ChatBox = () => {
   const { recipientUser } = useFetchRecipientUser(currentChat, user);
   const [textMessage, setTextMessage] = useState("");
 
-  //tracking the position of our page 
+  //Scrolling down to the last word of the chat 
   const scroll = useRef();
 
 

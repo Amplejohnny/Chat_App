@@ -51,11 +51,7 @@ const UserChat = ({ chat, user }) => {
       </div>
       <div className="d-flex flex-column align-items-end">
         <div className="date">
-          {moment(latestMessage?.createdAt).calendar(null, {
-            lastDay: "[Yesterday]",
-            sameDay: "[Today]",
-            lastWeek: "dddd",
-          })}
+          {moment(latestMessage?.createdAt).calendar()}
         </div>
         <div className={particularUserNotification?.length > 0 ? "this-user-notifications" : ""}>
           {particularUserNotification?.length > 0 ? particularUserNotification?.length : ""}

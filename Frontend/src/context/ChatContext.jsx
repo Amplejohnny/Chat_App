@@ -24,7 +24,7 @@ export const ChatContextProvider = ({ children, user }) => {
     const newSocket = io("http://localhost:8000");
     setSocket(newSocket);
     return () => {
-      newSocket.disconnect();
+      newSocket.close();
     };
   }, [user]);
 
@@ -137,7 +137,7 @@ export const ChatContextProvider = ({ children, user }) => {
         return setSendTextMessageError(response);
       }
       setNewMessage(response);
-      setMessages((prev) => [response, ...prev]);
+      setMessages((prev) => [...prev, response]);
       setTextMessage("");
     },
     []
@@ -201,17 +201,6 @@ export const ChatContextProvider = ({ children, user }) => {
     setNotifications(updatedNotifications);
   }, []);
   
-  //arrange the list according to the latest message using the createdAt property in the timestamp
-  // useEffect(() => {
-  //   if (userChats) {
-  //     const sortedChats = userChats.sort((a, b) => {
-  //       const latestMessageA = a?.messages[a?.messages.length - 1];
-  //       const latestMessageB = b?.messages[b?.messages.length - 1];
-  //       return new Date(latestMessageB?.createdAt) - new Date(latestMessageA?.createdAt);
-  //     });
-  //     setUserChats(sortedChats);
-  //   }
-  // }, [userChats]);
 
   return (
     <ChatContext.Provider
