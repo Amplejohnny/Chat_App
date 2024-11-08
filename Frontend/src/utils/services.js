@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8080/api";
+const baseUrl = "https://chat-app-backend-so8n.onrender.com";
 
 export const postRequest = async (url, value) => {
   const response = await fetch(`${baseUrl}${url}`, {
