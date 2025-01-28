@@ -46,7 +46,7 @@ const Login = () => {
             </div>
             {loginError && (
               <div
-                className="flex justify-between items-center bg-red-100 border border-red-100 text-red-700 px-4 py-5 rounded relative "
+                className="flex justify-between items-center bg-red-100 border border-red-100 text-red-700 px-3 py-3 rounded relative "
                 role="alert"
               >
                 <p className="inline-block">{loginError.message}</p>

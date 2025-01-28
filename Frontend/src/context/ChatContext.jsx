@@ -22,6 +22,7 @@ export const ChatContextProvider = ({ children, user }) => {
   //initializing socket
   useEffect(() => {
     const newSocket = io("https://chat-app-socket-suoy.onrender.com/");
+    // const newSocket = io("http://localhost:8000");
     setSocket(newSocket);
     return () => {
       newSocket.close();
