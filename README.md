@@ -16,7 +16,7 @@ myChatApp is a real-time chat application built using **React** for the frontend
 ## Technologies Used
 ### Frontend:
 - **React**
-- **Tailwind CSS**
+- **Bootstrap**
 - **Vite**
 
 ### Backend:
@@ -46,8 +46,8 @@ Ensure you have the following installed before proceeding:
 
 ### 1. Clone the Repository:
 ```bash
-git clone https://github.com/Amplejohnny/myChatApp.git
-cd myChatApp
+git clone https://github.com/Amplejohnny/Chat_App
+cd chat_app
 ```
 
 ### 2. Install Backend Dependencies:
@@ -78,7 +78,7 @@ VITE_API_BASE_URL=http://localhost:5173
 ### 5. Run the Backend Server:
 ```bash
 cd ../Backend
-npm start
+npm run dev
 ```
 
 ### 6. Run the Frontend Development Server:
@@ -111,7 +111,7 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for d
 - **React** for the frontend framework.
 - **Express.js** for the backend framework.
 - **Socket.IO** for real-time communication.
-- **Tailwind CSS** for styling.
+- **Bootstrap** for styling.
 
 ---
 
