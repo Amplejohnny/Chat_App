@@ -142,8 +142,7 @@ body {
   position: absolute;
   top: 2rem;
   right: 0;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   background: #181d31;
   z-index: 5;
 }
@@ -178,7 +177,7 @@ body {
 }
 
 .notification.not-read {
-  background: #243E36;
+  background: #243e36;
   /* #263159  */
 }
 
@@ -216,9 +215,60 @@ body {
 }
 
 .avatar-img {
-  height: 35px; 
+  height: 35px;
 }
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+/* Mobile Unsupported Page Styles */
+.mobile-unsupported-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.mobile-unsupported-content {
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-unsupported-content h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.mobile-unsupported-content p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.contact-support {
+  font-size: 14px;
+  color: #888;
+}
+
+.contact-support a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.contact-support a:hover {
+  text-decoration: underline;
 }
