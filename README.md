@@ -9,7 +9,6 @@ myChatApp is a real-time chat application built using **React** for the frontend
 - **Real-Time Chat**: Send and receive messages instantly using Socket.IO.
 - **Online Status**: View which users are online.
 - **Notifications**: Get notified when receiving a new message.
-- **Responsive Design**: Built with a mobile-first approach using Tailwind CSS.
 
 ---
 
