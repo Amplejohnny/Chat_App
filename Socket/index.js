@@ -31,7 +31,6 @@ io.on("connection", (socket) => {
     }
   });
 
-  //show user is offline
   socket.on("disconnect", () => {
     onlineUsers = onlineUsers.filter((user) => user.socketId !== socket.id);
     io.emit("getOnlineUsers", onlineUsers);
