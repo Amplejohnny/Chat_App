@@ -1,5 +1,4 @@
 const baseUrl = "https://chat-app-backend-so8n.onrender.com/api";
-// const baseUrl = "http://localhost:8080/api";
 
 export const postRequest = async (url, value) => {
   try {
@@ -26,7 +25,6 @@ export const postRequest = async (url, value) => {
     }
     return data;
   } catch (error) {
-    // Handle fetch errors or JSON parsing errors
     return { error: true, message: error.message || "Network error" };
   }
 };

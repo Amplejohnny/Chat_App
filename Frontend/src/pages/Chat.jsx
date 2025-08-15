@@ -10,12 +10,6 @@ const Chat = () => {
   const { user } = useContext(AuthContext);
   const { userChats, isUserChatsLoading, updateCurrentChat, userChatError } = useContext(ChatContext);
 
-  // const sortedChats = userChats.slice().sort((a, b) => {
-  //   const timeA = new Date(a.latestMessage.createdAt);
-  //   const timeB = new Date(b.latestMessage.createdAt);
-  
-  //   return timeB - timeA;
-  // });
   return (
     <Container>
       <OnlineChat />
