@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ChatContext } from "../context/ChatContext";
-import { Container, Stack } from "react-bootstrap";
 import UserChat from "../components/chat/UserChat";
 import { AuthContext } from "../context/AuthContext";
 import OnlineChat from "../components/chat/OnlineChat";
@@ -8,27 +7,32 @@ import ChatBox from "../components/chat/ChatBox";
 
 const Chat = () => {
   const { user } = useContext(AuthContext);
-  const { userChats, isUserChatsLoading, updateCurrentChat, userChatError } = useContext(ChatContext);
+  const { userChats, isUserChatsLoading, updateCurrentChat, userChatError } =
+    useContext(ChatContext);
 
   return (
-    <Container>
+    <div className="w-full">
       <OnlineChat />
       {userChats?.length < 1 ? null : (
-        <Stack direction="horizontal" gap={4} className="d-flex align-items-start">
-          <Stack className="messages-box pe-3 flex-grow-0" gap={3}>
-            {isUserChatsLoading && <p>Loading Chats...</p>}
-            {userChats?.map((chat, index) => {
-              return (
-                <div key={index} onClick={() => updateCurrentChat(chat)}>
-                  <UserChat chat={chat} user={user} />
-                </div>
-              );
-            })}
-          </Stack>
-          <ChatBox />
-        </Stack>
+        <div className="flex flex-col lg:flex-row gap-4 items-start">
+          <div className="w-full lg:w-96 lg:flex-shrink-0 lg:pe-3">
+            <div className="space-y-3">
+              {isUserChatsLoading && <p className="text-center">Loading Chats...</p>}
+              {userChats?.map((chat, index) => {
+                return (
+                  <div key={index} onClick={() => updateCurrentChat(chat)}>
+                    <UserChat chat={chat} user={user} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="flex-1 w-full">
+            <ChatBox />
+          </div>
+        </div>
       )}
-    </Container>
+    </div>
   );
 };
 

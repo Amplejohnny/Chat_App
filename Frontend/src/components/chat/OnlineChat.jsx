@@ -7,27 +7,23 @@ const OnlineChat = () => {
   const { onlineUserChats, createChat, onlineUsers } = useContext(ChatContext);
 
   return (
-    <>
-      <div className="all-users">
-        {onlineUserChats &&
-          onlineUserChats.map((u, index) => {
-            return (
-              <div
-                className="single-user"
-                key={index}
-                onClick={() => createChat(user?.data._id, u._id)}
-              >
-                {u.username}
-                <span
-                  className={
-                    onlineUsers?.some((user) => user?.userId === u?._id) ? "user-online" : ""
-                  }
-                ></span>
-              </div>
-            );
-          })}
-      </div>
-    </>
+    <div className="flex flex-wrap gap-2 mb-4 p-2">
+      {onlineUserChats &&
+        onlineUserChats.map((u, index) => {
+          return (
+            <div
+              className="relative bg-cyan-500 cursor-pointer px-3 py-2 rounded-lg text-sm font-medium hover:bg-cyan-600 transition-colors"
+              key={index}
+              onClick={() => createChat(user?.data._id, u._id)}
+            >
+              {u.username}
+              {onlineUsers?.some((user) => user?.userId === u?._id) && (
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-800"></span>
+              )}
+            </div>
+          );
+        })}
+    </div>
   );
 };
 
